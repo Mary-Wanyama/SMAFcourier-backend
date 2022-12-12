@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   resources :profiles
   get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  resources :users, only: [:new, :create, :index, :show, :update]
+
+  get "/me", to: "users#show"
+
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
+  resources :users, only: [:new, :create, :index, :update]
   resources :parcels, only: [:index, :show, :create, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
