@@ -12,7 +12,6 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :role, inclusion: ["Customer", "Employee", "Admin"]
 
-   
 
     def welcome
       "Hello, #{self.email}!"

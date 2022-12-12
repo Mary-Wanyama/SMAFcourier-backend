@@ -27,7 +27,7 @@ class ParcelsController < ApplicationController
         Parcel.find(params[:id])
     end
     def parcels_params
-        params.permit(:name, :weight, :pickup_location, :delivery_location, :sender, :receiver, )
+        params.permit(:name, :type, :weight, :pickup_location, :delivery_location, :sender, :receiver, )
     end
     def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
