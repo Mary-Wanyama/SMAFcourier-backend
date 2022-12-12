@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+    has_many :profiles 
+    has many :parcels, through: :profiles
 
     validates :firstname, presence: true
     validates :lastname, presence: true 
@@ -14,5 +16,5 @@ class User < ApplicationRecord
 
     def welcome
       "Hello, #{self.email}!"
-    end
+    end 
 end

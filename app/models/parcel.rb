@@ -1,6 +1,6 @@
 class Parcel < ApplicationRecord
-    belongs_to :user 
-    belongs_to :customer
+   has_many :profiles
+   has_many :users, through: :profiles
 
     validates :name, presence: true 
     validates :weight, presence: true 
