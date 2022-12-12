@@ -10,4 +10,5 @@ class User < ApplicationRecord
     validates :tel, precense: true
     validates :email, presence: true
     validates :email, uniqueness: true
+    validates :role, inclusion: ["Customer", "Employee", "Admin"]
 end

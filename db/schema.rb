@@ -10,35 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_094846) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_113443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "username"
-    t.string "firstname"
-    t.string "lastname"
-    t.text "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email"
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "tel"
-    t.string "status"
-    t.integer "rating"
-    t.string "username"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email"
-  end
-
   create_table "parcels", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "customer_id"
     t.string "name"
     t.string "type"
     t.string "pickup_location"
@@ -53,20 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_094846) do
     t.datetime "delivery_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "people", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "admin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "customer_id"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.string "person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "receiver"
+    t.string "sender"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_094846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.string "role"
   end
 
 end
