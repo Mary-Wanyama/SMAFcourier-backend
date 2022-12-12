@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index, :show, :create, :update]
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  resources :users, only: [:new, :create, :index, :show, :update]
   resources :parcels, only: [:index, :show, :create, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
