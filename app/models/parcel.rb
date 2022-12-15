@@ -5,5 +5,5 @@ class Parcel < ApplicationRecord
     validates :name, presence: true 
     validates :weight, presence: true 
     validates :delivery_location, presence: true 
-    validates :pickup_location
+    validates :pickup_location, presence: true
 end
